@@ -1,0 +1,9 @@
+export { default as Elem } from "./elementary.jpg";
+export { default as Gym } from "./gym.jpg";
+export { default as Jungle } from "./jungle.jpg";
+export { default as Morning } from "./morning.jpg";
+export { default as Saudi1 } from "./Saudi1.jpg";
+export { default as Saudi2 } from "./Saudi2.jpg";
+export { default as Sunrise } from "./sunrise.jpg";
+export { default as Park } from "./trailerpark.jpg";
+export { default as Warehouse } from "./warehouse.jpg";
