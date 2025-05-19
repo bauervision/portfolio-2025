@@ -3,7 +3,9 @@
 
 import { useEffect, useState } from 'react';
 import Box from '@mui/material/Box';
-import Button from '@mui/material/Button';
+
+import NavImageButton from '../components/NavImageButton';
+
 import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
 
 const navSections = ['3D', 'Apps', 'Art', 'Games', 'UX', 'XR'];
@@ -15,7 +17,7 @@ export default function HomePage() {
   const springY = useSpring(y, { stiffness: 50, damping: 20 });
 const backgroundPosition = useTransform(
   [springX, springY],
-  ([xVal, yVal]) => `${50 - Number(xVal)}% ${50 + Number(yVal) * 2}%`
+  ([xVal, yVal]) => `${50 - Number(xVal)}% ${50 - Number(yVal) * 2}%`
 );
 
   const [viewportSize, setViewportSize] = useState({ width: 0, height: 0 });
@@ -44,9 +46,9 @@ const backgroundPosition = useTransform(
     >
       <motion.div
         style={{
-          overflow: 'hidden',
-          width: '100%',
+        width: '100%',
         height: '100vh',
+        overflow: 'hidden',
         backgroundImage: 'url("/hero-background.jpg")',
           backgroundSize: '110% 110%',
           backgroundPosition,
@@ -74,46 +76,7 @@ const backgroundPosition = useTransform(
                 animate={{ x: 0, opacity: 1 }}
                 transition={{ delay: index * 0.2, duration: 0.4 }}
               >
-                <Box
-  sx={{
-    width: 200,
-    height: 120,
-    position: 'relative',
-    overflow: 'hidden',
-    borderRadius: 2,
-    boxShadow: 3,
-    '&:hover .hover-image': {
-      opacity: 1,
-      transform: 'scale(1)',
-    },
-  }}
->
-  <Box
-    className="hover-image"
-    component="img"
-    src={`/buttons/${label.toLowerCase()}.jpg`}
-    alt={label}
-    sx={{
-      position: 'absolute',
-      inset: 0,
-      width: '100%',
-      height: '100%',
-      objectFit: 'cover',
-      opacity: 0,
-      transition: 'opacity 0.5s ease, transform 0.5s ease',
-      transform: 'scale(1.1)',
-      zIndex: 0,
-    }}
-  />
-  <Button
-    variant="contained"
-    color="primary"
-    size="large"
-    sx={{ width: '100%', height: '100%', zIndex: 1, backgroundColor: 'rgba(0,0,0,0.6)' }}
-  >
-    {label}
-  </Button>
-</Box>
+                 <NavImageButton label={label} />
               </motion.div>
             ))}
           </Box>
@@ -125,46 +88,7 @@ const backgroundPosition = useTransform(
                 animate={{ x: 0, opacity: 1 }}
                 transition={{ delay: (index + 3) * 0.2, duration: 0.4 }}
               >
-                <Box
-  sx={{
-    width: 200,
-    height: 120,
-    position: 'relative',
-    overflow: 'hidden',
-    borderRadius: 2,
-    boxShadow: 3,
-    '&:hover .hover-image': {
-      opacity: 1,
-      transform: 'scale(1)',
-    },
-  }}
->
-  <Box
-    className="hover-image"
-    component="img"
-    src={`/buttons/${label.toLowerCase()}.jpg`}
-    alt={label}
-    sx={{
-      position: 'absolute',
-      inset: 0,
-      width: '100%',
-      height: '100%',
-      objectFit: 'cover',
-      opacity: 0,
-      transition: 'opacity 0.5s ease, transform 0.5s ease',
-      transform: 'scale(1.1)',
-      zIndex: 0,
-    }}
-  />
-  <Button
-    variant="contained"
-    color="primary"
-    size="large"
-    sx={{ width: '100%', height: '100%', zIndex: 1, backgroundColor: 'rgba(0,0,0,0.6)' }}
-  >
-    {label}
-  </Button>
-</Box>
+                 <NavImageButton label={label} />
               </motion.div>
             ))}
           </Box>
