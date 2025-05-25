@@ -15,7 +15,7 @@ import { ColorModeContext } from './ClientLayout';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 
-const navLinks = ['XR', 'UX', 'Art', 'Apps', 'Websites', 'Apparel', 'Contact'];
+const navLinks = ['XR', 'UX', 'Art', 'Apps', 'Websites'];
 
 export default function Navbar() {
   const theme = useTheme();

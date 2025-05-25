@@ -62,7 +62,7 @@ export default function ProjectPageTemplate({
         <div className='text-center'>
           <h1 className='text-4xl font-bold'>{title}</h1>
           {description && (
-            <p className='mt-2 text-lg text-gray-600 dark:text-gray-300 p-5'>
+            <p className='mt-2 text-lg text-blue-700 dark:text-gray-500 p-5'>
               {description}
             </p>
           )}

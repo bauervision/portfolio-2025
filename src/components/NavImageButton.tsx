@@ -58,7 +58,7 @@ export default function NavImageButton({ label }: NavImageButtonProps) {
         <div
           className='absolute inset-0 bg-cover bg-center opacity-0 transition-opacity duration-500 scale-110 group-hover:opacity-100 group-hover:scale-100'
           style={{
-            backgroundImage: `url(/buttons/${label.toLowerCase()}.jpg)`,
+            backgroundImage: `url(/buttons/${label}.jpg)`,
           }}
         />
         <div

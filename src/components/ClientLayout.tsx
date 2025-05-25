@@ -6,7 +6,6 @@ import { ThemeProvider, createTheme, CssBaseline } from '@mui/material';
 import Navbar from './NavBar';
 import Footer from './Footer';
 
-
 export const ColorModeContext = createContext({ toggleColorMode: () => {} });
 
 export default function ClientLayout({ children }: { children: ReactNode }) {
@@ -17,11 +16,20 @@ export default function ClientLayout({ children }: { children: ReactNode }) {
   }, []);
 
   useEffect(() => {
-  setMode('light');
-  document.body.classList.add('loaded');
-}, []);
+    setMode('light');
+    document.body.classList.add('loaded');
+  }, []);
 
-  
+  // === SYNC TAILWIND DARK CLASS ===
+  useEffect(() => {
+    if (mode === 'dark') {
+      document.documentElement.classList.add('dark');
+    } else if (mode === 'light') {
+      document.documentElement.classList.remove('dark');
+    }
+  }, [mode]);
+  // ================================
+
   const colorMode = useMemo(
     () => ({
       toggleColorMode: () =>
@@ -30,25 +38,24 @@ export default function ClientLayout({ children }: { children: ReactNode }) {
     []
   );
 
-const theme = useMemo(
-  () =>
-    createTheme({
-      palette: {
-        mode: mode ?? 'light',
-      },
-      components: {
-        MuiCssBaseline: {
-          styleOverrides: {
-            body: {
-              backgroundColor: '#000000', // force black start
+  const theme = useMemo(
+    () =>
+      createTheme({
+        palette: {
+          mode: mode ?? 'light',
+        },
+        components: {
+          MuiCssBaseline: {
+            styleOverrides: {
+              body: {
+                backgroundColor: '#000000', // force black start
+              },
             },
           },
         },
-      },
-    }),
-  [mode]
-);
-
+      }),
+    [mode]
+  );
 
   if (mode === null) return null;
 
@@ -56,10 +63,10 @@ const theme = useMemo(
     <ColorModeContext.Provider value={colorMode}>
       <ThemeProvider theme={theme}>
         <CssBaseline />
-        <div className="flex flex-col min-h-screen">
+        <div className='flex flex-col min-h-screen'>
           <Navbar />
-          <main className="flex-grow">{children}</main>
-         <Footer/>
+          <main className='flex-grow '>{children}</main>
+          <Footer />
         </div>
       </ThemeProvider>
     </ColorModeContext.Provider>

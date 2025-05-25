@@ -15,10 +15,10 @@ export default function HomePage() {
   const y = useMotionValue(0);
   const springX = useSpring(x, { stiffness: 50, damping: 20 });
   const springY = useSpring(y, { stiffness: 50, damping: 20 });
-const backgroundPosition = useTransform(
-  [springX, springY],
-  ([xVal, yVal]) => `${50 - Number(xVal)}% ${50 - Number(yVal) * 2}%`
-);
+  const backgroundPosition = useTransform(
+    [springX, springY],
+    ([xVal, yVal]) => `${50 - Number(xVal)}% ${50 - Number(yVal) * 2}%`
+  );
 
   const [viewportSize, setViewportSize] = useState({ width: 0, height: 0 });
 
@@ -46,10 +46,10 @@ const backgroundPosition = useTransform(
     >
       <motion.div
         style={{
-        width: '100%',
-        height: '100vh',
-        overflow: 'hidden',
-        backgroundImage: 'url("/hero-background.jpg")',
+          width: '100%',
+          height: '100vh',
+          overflow: 'hidden',
+          backgroundImage: 'url("/hero-background.jpg")',
           backgroundSize: '110% 110%',
           backgroundPosition,
           backgroundRepeat: 'no-repeat',
@@ -76,7 +76,7 @@ const backgroundPosition = useTransform(
                 animate={{ x: 0, opacity: 1 }}
                 transition={{ delay: index * 0.2, duration: 0.4 }}
               >
-                 <NavImageButton label={label} />
+                <NavImageButton label={label} />
               </motion.div>
             ))}
           </Box>
@@ -88,7 +88,7 @@ const backgroundPosition = useTransform(
                 animate={{ x: 0, opacity: 1 }}
                 transition={{ delay: (index + 3) * 0.2, duration: 0.4 }}
               >
-                 <NavImageButton label={label} />
+                <NavImageButton label={label} />
               </motion.div>
             ))}
           </Box>
