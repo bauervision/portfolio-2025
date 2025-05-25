@@ -1,5 +1,6 @@
 'use client';
 import ProjectPageTemplate from '@/components/ProjectPageTemplates';
+import { allSlugs } from '@/constants';
 
 const imagesGames = [
   {
@@ -181,7 +182,7 @@ const imagesGames = [
       'One of the final challenges for the player, but very well hidden. Only the most aware players will find this location',
   },
 ];
-const allSlugs = ['3d', 'apps', 'art', 'games', 'ux', 'xr'];
+
 const description =
   'About 5 years ago I started developing a game with my boys. They have since moved on from it, but I am determined to finish it and release it.  This game is called Galo Islands, and is a fun adventure game designed for mobile devices.';
 

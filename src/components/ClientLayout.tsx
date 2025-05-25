@@ -12,11 +12,11 @@ export default function ClientLayout({ children }: { children: ReactNode }) {
   const [mode, setMode] = useState<'light' | 'dark' | null>(null);
 
   useEffect(() => {
-    setMode('light'); // or auto-detect if preferred
+    setMode('dark'); // or auto-detect if preferred
   }, []);
 
   useEffect(() => {
-    setMode('light');
+    setMode('dark');
     document.body.classList.add('loaded');
   }, []);
 

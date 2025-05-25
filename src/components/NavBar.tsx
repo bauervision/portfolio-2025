@@ -14,8 +14,9 @@ import { useTheme } from '@mui/material/styles';
 import { ColorModeContext } from './ClientLayout';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
+import EmailOutlinedIcon from '@mui/icons-material/EmailOutlined';
 
-const navLinks = ['XR', 'UX', 'Art', 'Apps', 'Websites'];
+const navLinks = ['3D', 'Apps', 'Art', 'Games', 'UX', 'XR', 'Websites'];
 
 export default function Navbar() {
   const theme = useTheme();
@@ -63,32 +64,43 @@ export default function Navbar() {
               transition={{ delay: index * 0.1, duration: 0.4 }}
               whileHover={{ color: '#ffffff' }}
             >
-              <Button
-                color='inherit'
-                sx={{
-                  position: 'relative',
-                  overflow: 'hidden',
-                  '&::after': {
-                    content: '""',
-                    position: 'absolute',
-                    left: 0,
-                    bottom: 0,
-                    height: '2px',
-                    width: '100%',
-                    backgroundColor: 'white',
-                    transform: 'scaleX(0)',
-                    transformOrigin: 'left',
-                    transition: 'transform 0.3s ease-in-out',
-                  },
-                  '&:hover::after': {
-                    transform: 'scaleX(1)',
-                  },
-                }}
-              >
-                {label}
-              </Button>
+              <Link href={`/${label.toLowerCase()}`} passHref>
+                <Button
+                  color='inherit'
+                  sx={{
+                    position: 'relative',
+                    overflow: 'hidden',
+                    '&::after': {
+                      content: '""',
+                      position: 'absolute',
+                      left: 0,
+                      bottom: 0,
+                      height: '2px',
+                      width: '100%',
+                      backgroundColor: 'white',
+                      transform: 'scaleX(0)',
+                      transformOrigin: 'left',
+                      transition: 'transform 0.3s ease-in-out',
+                    },
+                    '&:hover::after': {
+                      transform: 'scaleX(1)',
+                    },
+                  }}
+                >
+                  {label}
+                </Button>
+              </Link>
             </motion.div>
           ))}
+
+          <Link
+            href='/contact'
+            className='ml-4 p-2 rounded-full hover:bg-blue-100 dark:hover:bg-gray-800 transition'
+            aria-label='Contact'
+          >
+            <EmailOutlinedIcon fontSize='medium' />
+          </Link>
+
           <motion.div
             style={{ display: 'inline-flex' }}
             initial={{ x: 100, opacity: 0 }}

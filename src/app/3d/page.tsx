@@ -1,6 +1,7 @@
 'use client';
 
 import ProjectPageTemplate from '@/components/ProjectPageTemplates';
+import { allSlugs } from '@/constants';
 
 // Replace these with your actual image metadata
 const images = [
@@ -76,7 +77,6 @@ const images = [
   },
 ];
 
-const allSlugs = ['3d', 'apps', 'art', 'games', 'ux', 'xr'];
 const description =
   'These images are from my work at Northrop Grumman between the years of 2012 and 2016 where I was the Lead Game Developer working on an internal project called the VIPE Holodeck.  This was a 360 degree immersive training simulator that used the Microsoft Kinect, Laser Shot, and 8 projectors to create a fully interactive, hands-free and headset-free, environment';
 

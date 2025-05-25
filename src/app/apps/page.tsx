@@ -1,6 +1,7 @@
 'use client';
 
 import ProjectPageTemplate from '@/components/ProjectPageTemplates';
+import { allSlugs } from '@/constants';
 
 const imagesApps = [
   {
@@ -28,7 +29,7 @@ const imagesApps = [
       'Another app created from a personal need for organizing my morning workouts better. This generates workouts based on mucle groups',
   },
 ];
-const allSlugs = ['3d', 'apps', 'art', 'games', 'ux', 'xr'];
+
 const description =
   'I released these apps on the Google Play store a few years ago as 100% free apps, but recently took them all down as I am revamping my entire store to now account for a wider library of apps that I am planning on releasing. ';
 

@@ -1,5 +1,6 @@
 'use client';
 import ProjectPageTemplate from '@/components/ProjectPageTemplates';
+import { allSlugs } from '@/constants';
 
 const imagesXR = [
   {
@@ -91,7 +92,7 @@ const imagesXR = [
       'This was the very first scene where we attempted to handle full runtime objective creation.  The user was able to completely customize the objectives of the entire experience from a single dialog that prompted the user for decisions, we then connected all the dots under the hood and without needing to do anything other than run the app, experience the escape room from beginning to end. It was probably one of the most challenging and fun apps to date for me',
   },
 ];
-const allSlugs = ['3d', 'apps', 'art', 'games', 'ux', 'xr'];
+
 const description =
   'For the vast majority of my career I have been focused on creating pleasing and intuitive UX for every app I have ever been a part of designing.  I consider myself a UX first developer, and while the examples below do not represent all of my UI designs, these are the ones I was able to release publicly.';
 

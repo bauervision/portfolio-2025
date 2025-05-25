@@ -1,5 +1,6 @@
 'use client';
 import ProjectPageTemplate from '@/components/ProjectPageTemplates';
+import { allSlugs } from '@/constants';
 
 const imagesArt = [
   {
@@ -50,7 +51,7 @@ const imagesArt = [
       'One of my largest acrylics to date, and one of my top 3 favorites. This one took about 2 weeks to complete.',
   },
 ];
-const allSlugs = ['3d', 'apps', 'art', 'games', 'ux', 'xr'];
+
 const description =
   'Every now and then I need to create something that actually exists in this world, and is not only present in binary code.  I have been an artist my whole life and I really love painting, and drawing. Unfortunately the mood to do so only hits me occasionally';
 

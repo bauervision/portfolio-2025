@@ -102,7 +102,7 @@ export default function ProjectPageTemplate({
               <motion.div
                 key={photo.src}
                 ref={containerRef}
-                className='relative group cursor-pointer overflow-hidden'
+                className='relative group cursor-pointer overflow-hidden border-slate-500 border-4'
                 onMouseMove={handleMouseMove}
                 onMouseLeave={handleMouseLeave}
                 style={{ translateX: springX, translateY: springY }}

@@ -28,7 +28,7 @@ export default function Footer() {
         </div>
 
         {/* Quick Links */}
-        <div className='flex flex-col space-y-2'>
+        {/* <div className='flex flex-col space-y-2'>
           <h3 className='font-semibold'>Quick Links</h3>
           <Link href='/3d'>3D</Link>
           <Link href='/apps'>Apps</Link>
@@ -36,14 +36,13 @@ export default function Footer() {
           <Link href='/games'>Games</Link>
           <Link href='/ux'>UX</Link>
           <Link href='/xr'>XR</Link>
-        </div>
+        </div> */}
 
         {/* Contact Info */}
         <div className='flex flex-col space-y-2'>
-          <h3 className='font-semibold'>Contact</h3>
-          <a href='mailto:info@bauervision.com' className='hover:underline'>
-            info@bauervision.com
-          </a>
+          <Link href={'/contact'}>
+            <h3 className='font-semibold'>Contact</h3>
+          </Link>
 
           <div className='flex space-x-4 pt-2'>
             <Link

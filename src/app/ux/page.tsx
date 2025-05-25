@@ -1,5 +1,6 @@
 'use client';
 import ProjectPageTemplate from '@/components/ProjectPageTemplates';
+import { allSlugs } from '@/constants';
 
 const imagesUX = [
   {
@@ -115,7 +116,7 @@ const imagesUX = [
     description: 'Description for UX Project 2',
   },
 ];
-const allSlugs = ['3d', 'apps', 'art', 'games', 'ux', 'xr'];
+
 const description =
   'For the vast majority of my career I have been focused on creating pleasing and intuitive UX for every app I have ever been a part of designing.  I consider myself a UX first developer, and while the examples below do not represent all of my UI designs, these are the ones I was able to release publicly.';
 
