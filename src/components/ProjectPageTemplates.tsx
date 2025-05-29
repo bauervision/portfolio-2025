@@ -14,12 +14,14 @@ import { useTheme } from '@mui/material/styles';
 interface ProjectPageTemplateProps {
   title: string;
   description?: string;
+
   images: {
     src: string;
     width: number;
     height: number;
     title?: string;
     description?: string;
+    url?: string;
   }[];
   allSlugs: string[];
 }
@@ -46,6 +48,7 @@ export default function ProjectPageTemplate({
     height: img.height,
     title: img.title,
     description: img.description,
+    url: img.url,
   }));
 
   return (
@@ -107,8 +110,12 @@ export default function ProjectPageTemplate({
                 onMouseLeave={handleMouseLeave}
                 style={{ translateX: springX, translateY: springY }}
                 onClick={() => {
-                  setIndex(i);
-                  setOpen(true);
+                  if (photo.url) {
+                    window.open(photo.url, '_blank', 'noopener,noreferrer');
+                  } else {
+                    setIndex(i);
+                    setOpen(true);
+                  }
                 }}
               >
                 <img

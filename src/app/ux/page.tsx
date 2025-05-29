@@ -4,6 +4,14 @@ import { allSlugs } from '@/constants';
 
 const imagesUX = [
   {
+    src: '/sites/leavewebfigma.jpg',
+    width: 1815,
+    height: 936,
+    title: 'LeaveWeb: Figma file',
+    description: '',
+    url: 'https://www.figma.com/design/QI4dosJeLMvi4yXQzRKOnE/Leave-Web-Mobile?node-id=0-1&p=f',
+  },
+  {
     src: '/UX/UX1.JPG',
     width: 1815,
     height: 936,
@@ -118,7 +126,7 @@ const imagesUX = [
 ];
 
 const description =
-  'For the vast majority of my career I have been focused on creating pleasing and intuitive UX for every app I have ever been a part of designing.  I consider myself a UX first developer, and while the examples below do not represent all of my UI designs, these are the ones I was able to release publicly.';
+  'For the vast majority of my career I have been focused on creating pleasing and intuitive UX for every app I have ever been a part of designing.  I consider myself a UX first developer, and while the examples below do not represent all of my UI designs, these are the ones I was able to release publicly.  Also, any static images presented here are projects that have been lost to time that I only have select screenshots to share.';
 
 export default function UXPage() {
   return (
