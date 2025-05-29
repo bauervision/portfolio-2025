@@ -9,7 +9,7 @@ body {
 }
 
 body {
-  background-color: #000; /* initial black */
+  background-color: #0a0d1a !important;
   color: inherit;
   transition: background-color 1s ease-in-out;
 }

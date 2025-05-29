@@ -3,12 +3,18 @@ import { ReactNode } from 'react';
 import ClientLayout from '../components/ClientLayout';
 import type { Metadata } from 'next';
 
+export const viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 1,
+  userScalable: false,
+};
+
 export const metadata: Metadata = {
+  metadataBase: new URL('https://bauervision.com'),
   title: 'Mike C. Bauer Portfolio | Bauervision',
   description:
     'The UX & XR portfolio of Mike Bauer, modern design and dev for real world projects.',
-  viewport:
-    'width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no',
   // Optional: OpenGraph & SEO meta tags
   openGraph: {
     title: 'Mike Bauer Portfolio | Bauervision',
@@ -31,10 +37,11 @@ export const metadata: Metadata = {
     icon: '/favicon.ico', // Make sure you have favicon.ico in /public
   },
 };
+
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang='en'>
-      <body className='min-h-screen flex flex-col overflow-x-hidden'>
+      <body className='min-h-screen flex flex-col overflow-x-hidden bg-[#0a0d1a]'>
         <ClientLayout>{children}</ClientLayout>
       </body>
     </html>
