@@ -59,25 +59,11 @@ export default function HomePage() {
       }}
     >
       {/* Main content container */}
-      <div
-        className='
-          flex flex-col md:flex-row
-          items-center md:items-stretch
-          justify-center md:justify-between
-          w-full max-w-6xl
-          px-4
-          gap-0
-        '
-      >
+      <div className='flex flex-col md:flex-row items-center md:items-stretch justify-center md:justify-between w-full px-4 py-4 md:max-w-6xl mx-auto'>
         {/* Left buttons group */}
         <div
           className='
-            flex flex-col
-            items-center md:items-start
-            w-full md:w-auto
-            md:justify-start
-            gap-2
-            md:gap-4
+            flex flex-col items-center md:items-start w-full md:w-auto gap-2 md:gap-4 pb-2
           '
         >
           {navSections.slice(0, 3).map((label, index) => (
@@ -86,22 +72,16 @@ export default function HomePage() {
               initial={{ x: -100, opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}
               transition={{ delay: index * 0.2, duration: 0.4 }}
-              className='w-full md:w-auto flex justify-center md:justify-start'
+              className='w-full md:w-auto   justify-center md:justify-start'
             >
-              <NavImageButton label={label} />
+              <NavImageButton label={label} mobile={isMobile} />
             </motion.div>
           ))}
         </div>
         {/* Right buttons group */}
         <div
           className='
-            flex flex-col
-            items-center md:items-end
-            w-full md:w-auto
-            md:justify-end
-            gap-2
-            md:gap-4
-            mt-2 md:mt-0
+           flex flex-col items-center md:items-start w-full md:w-auto gap-2 md:gap-4
           '
         >
           {navSections.slice(3).map((label, index) => (
@@ -110,9 +90,9 @@ export default function HomePage() {
               initial={{ x: 100, opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}
               transition={{ delay: (index + 3) * 0.2, duration: 0.4 }}
-              className='w-full md:w-auto flex justify-center md:justify-end'
+              className='w-full md:w-auto  justify-center md:justify-end'
             >
-              <NavImageButton label={label} />
+              <NavImageButton label={label} mobile={isMobile} />
             </motion.div>
           ))}
         </div>

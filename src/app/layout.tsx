@@ -26,11 +26,11 @@ export const metadata: Metadata = {
     locale: 'en_US',
     type: 'website',
   },
+
   icons: {
     icon: '/favicon.ico', // Make sure you have favicon.ico in /public
   },
 };
-
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang='en'>
