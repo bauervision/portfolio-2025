@@ -1,7 +1,6 @@
 {
   "projects": {
-    "default": "bauervision-website",
-    "portfolio": "bauervision-website"
+    "default": "bauervision"
   },
   "targets": {},
   "etags": {}
