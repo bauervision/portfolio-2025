@@ -87,7 +87,7 @@ export default function NavImageButton({ label, mobile }: NavImageButtonProps) {
         {/* Label: always visible on mobile, fades out on hover (desktop) */}
         <span
           className={`
-            absolute z-30 transition-all duration-300 select-none
+            absolute z-60 transition-all duration-300 select-none
             ${
               mobile
                 ? 'left-6 bottom-4 text-left text-white [text-shadow:2px_4px_12px_rgba(0,0,0,1)]  text-xl tracking-wide'

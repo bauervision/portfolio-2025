@@ -4,6 +4,7 @@ import { useRef, useState } from 'react';
 import { motion, useMotionValue, useSpring } from 'framer-motion';
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
+import MiniChatBotLauncher from './MiniChatBotLauncher';
 
 export interface Website {
   title: string;
@@ -119,6 +120,8 @@ export default function WebsiteGallery({
           {nextSlug.toUpperCase()} →
         </Link>
       </div>
+
+      <MiniChatBotLauncher />
     </section>
   );
 }

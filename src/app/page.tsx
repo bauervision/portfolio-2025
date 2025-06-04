@@ -4,6 +4,7 @@
 import { useEffect, useState } from 'react';
 import NavImageButton from '../components/NavImageButton';
 import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
+import ChatBotLauncher from '@/components/ChatBotLauncher';
 
 const navSections = ['3D', 'Apps', 'Art', 'Games', 'UX', 'XR'];
 const mobileBgColor = '#0a0d1a';
@@ -60,6 +61,11 @@ export default function HomePage() {
     >
       {/* Main content container */}
       <div className='flex flex-col md:flex-row items-center md:items-stretch justify-center md:justify-between w-full px-4 py-4 md:max-w-6xl mx-auto'>
+        {/* Mobile-only at top */}
+        <div className='mt-20 mb-10 block md:hidden w-full justify-center z-30'>
+          <ChatBotLauncher />
+        </div>
+
         {/* Left buttons group */}
         <div
           className='
@@ -78,6 +84,12 @@ export default function HomePage() {
             </motion.div>
           ))}
         </div>
+
+        {/* Chatbot widget */}
+        <div className='hidden md:flex w-full justify-center items-center'>
+          <ChatBotLauncher />
+        </div>
+
         {/* Right buttons group */}
         <div
           className='

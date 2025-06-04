@@ -2,6 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --bubble-color-1: #93c5fd; /* blue-300 */
+  --bubble-color-2: #dbeafe; /* blue-100 */
+}
+.dark {
+  --bubble-color-1: #2563eb; /* blue-600 */
+  --bubble-color-2: #1e293b; /* slate-800 */
+}
+
 html,
 body {
   max-width: 100vw;
@@ -38,4 +47,24 @@ body.loaded {
 .yal-caption,
 .yal-caption-content {
   text-align: center;
+}
+
+/* shimmer.css */
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+.bubble-shimmer {
+  background: linear-gradient(
+    120deg,
+    var(--bubble-color-1) 0%,
+    var(--bubble-color-2) 50%,
+    var(--bubble-color-1) 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 2.2s infinite linear;
 }

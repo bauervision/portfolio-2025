@@ -10,6 +10,7 @@ import Captions from 'yet-another-react-lightbox/plugins/captions';
 import 'yet-another-react-lightbox/styles.css';
 import 'yet-another-react-lightbox/plugins/captions.css';
 import { useTheme } from '@mui/material/styles';
+import MiniChatBotLauncher from './MiniChatBotLauncher';
 
 interface ProjectPageTemplateProps {
   title: string;
@@ -158,6 +159,8 @@ export default function ProjectPageTemplate({
           {nextSlug.toUpperCase()} →
         </Link>
       </div>
+
+      <MiniChatBotLauncher />
     </main>
   );
 }
