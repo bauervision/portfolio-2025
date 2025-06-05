@@ -1,9 +1,16 @@
 import React, { useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import ChatBot from './ChatBot';
-import EyeBubble, { ThoughtBubble } from './EyeBubble';
+import EyeBubble from './EyeBubble';
+import { ThoughtBubble } from './ThoughtBubble';
 
-export default function ChatBotLauncher() {
+export default function ChatBotLauncher({
+  onPromptChange,
+  overridePrompt,
+}: {
+  onPromptChange?: (q: string | null) => void;
+  overridePrompt?: string | null;
+}) {
   const [open, setOpen] = useState(false);
   const [started, setStarted] = useState(false);
   const [input, setInput] = useState('');
@@ -33,7 +40,7 @@ export default function ChatBotLauncher() {
         {open && (
           <motion.div
             key='overlay-desktop'
-            className='absolute inset-0 z-40 bg-black/60 hidden md:block'
+            className='absolute inset-0 z-40 bg-black/90 hidden md:block'
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -115,7 +122,10 @@ export default function ChatBotLauncher() {
             title='Ask me anything!'
           >
             <div className='relative flex flex-col items-center'>
-              <ThoughtBubble onPromptChange={setSuggestedPrompt} />
+              <ThoughtBubble
+                onPromptChange={setSuggestedPrompt}
+                overridePrompt={overridePrompt}
+              />
               <EyeBubble
                 onClick={() => {
                   if (suggestedPrompt) {
@@ -182,13 +192,7 @@ export default function ChatBotLauncher() {
               maxWidth: '96vw',
             }}
           >
-            <div
-              className='relative bg-white p-4 dark:bg-gray-900 rounded-2xl shadow-2xl overflow-hidden flex flex-col w-full'
-              style={{
-                minHeight: !started ? 88 : 380,
-                transition: 'min-height 0.35s cubic-bezier(.4,2,.3,1)',
-              }}
-            >
+            <div className='relative bg-white p-4 dark:bg-gray-900 rounded-2xl shadow-2xl overflow-hidden flex flex-col w-full'>
               <button
                 className='absolute top-2 right-2 bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 rounded-full p-1 text-gray-600 dark:text-gray-100 z-10'
                 onClick={() => {
