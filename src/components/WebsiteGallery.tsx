@@ -1,10 +1,7 @@
 'use client';
 
-import { useRef, useState } from 'react';
+import { useRef } from 'react';
 import { motion, useMotionValue, useSpring } from 'framer-motion';
-import { usePathname } from 'next/navigation';
-import Link from 'next/link';
-import MiniChatBotLauncher from './MiniChatBotLauncher';
 
 export interface Website {
   title: string;
@@ -13,48 +10,42 @@ export interface Website {
   url: string;
 }
 
-interface WebsiteGalleryProps {
-  sites: Website[];
-  sectionTitle?: string;
-  description?: string;
-  allSlugs: string[];
-}
-
-export default function WebsiteGallery({
-  sites,
-  sectionTitle = 'Website Projects',
-  description,
-  allSlugs,
-}: WebsiteGalleryProps) {
-  const [index, setIndex] = useState(0);
-  const path = usePathname() || '/';
-  const slug = path.split('/').pop() || '';
-  const idx = allSlugs.indexOf(slug);
-  const prevSlug = allSlugs[(idx + allSlugs.length - 1) % allSlugs.length];
-  const nextSlug = allSlugs[(idx + 1) % allSlugs.length];
+export default function WebsiteGallery() {
+  const myWebsites = [
+    {
+      title: 'AccessAi',
+      description: 'Web page to examine accessibility of any given website',
+      image: '/sites/accessai.jpg',
+      url: 'https://accesai.web.app/',
+    },
+    {
+      title: 'Logistics Planet',
+      description:
+        'Design prototype for a logistics order tracking application',
+      image: '/sites/logistics-planet.jpg',
+      url: 'https://logistics-planet.web.app/',
+    },
+    {
+      title: 'Fretboard Modes',
+      description:
+        'A fundamental approach to learning modes of the guitar in an easy, and intuitive way',
+      image: '/sites/fretboard.jpg',
+      url: 'https://fretboard-modes.web.app',
+    },
+    {
+      title: 'Preschool Patch',
+      description: 'Created a website for my wifes business',
+      image: '/sites/preschool-patch.jpg',
+      url: 'https://preschool-patch.web.app/',
+    },
+  ];
 
   return (
-    <section className='min-h-screen flex flex-col bg-white dark:bg-gray-900 text-gray-900 dark:text-white py-8 px-4'>
-      {/* Top navigation */}
-      <div className='flex items-center justify-between py-8 px-4'>
-        <Link href={`/${prevSlug}`} className='text-blue-500 hover:underline'>
-          ← {prevSlug.toUpperCase()}
-        </Link>
-        <div className='text-center'>
-          <h1 className='text-4xl font-bold'>{sectionTitle}</h1>
-          {description && (
-            <p className='mt-2 text-lg text-blue-700 dark:text-gray-500 p-5'>
-              {description}
-            </p>
-          )}
-        </div>
-        <Link href={`/${nextSlug}`} className='text-blue-500 hover:underline'>
-          {nextSlug.toUpperCase()} →
-        </Link>
-      </div>
-      <div className='w-full flex justify-center'>
+    <section className='mb-4 flex flex-col bg-white dark:bg-gray-900 text-gray-900 dark:text-white py-2 px-4 '>
+      <h2 className='p-8 text-center text-3xl font-bold'>Active Websites</h2>
+      <div className='w-full flex  justify-center'>
         <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6'>
-          {sites.map((site) => {
+          {myWebsites.map((site) => {
             // Parallax hover effect
             const x = useMotionValue(0);
             const y = useMotionValue(0);
@@ -110,18 +101,6 @@ export default function WebsiteGallery({
           })}
         </div>
       </div>
-
-      {/* Bottom navigation */}
-      <div className='flex items-center justify-between py-8 px-4'>
-        <Link href={`/${prevSlug}`} className='text-blue-500 hover:underline'>
-          ← {prevSlug.toUpperCase()}
-        </Link>
-        <Link href={`/${nextSlug}`} className='text-blue-500 hover:underline'>
-          {nextSlug.toUpperCase()} →
-        </Link>
-      </div>
-
-      <MiniChatBotLauncher />
     </section>
   );
 }

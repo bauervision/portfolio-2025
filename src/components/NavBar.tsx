@@ -23,7 +23,7 @@ import ListItemText from '@mui/material/ListItemText';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import HomeIcon from '@mui/icons-material/Home';
 
-const navLinks = ['3D', 'Apps', 'Art', 'Games', 'UX', 'XR', 'Websites'];
+const navLinks = ['3D', 'Apps', 'Art', 'Games', 'UX', 'XR'];
 
 export default function Navbar() {
   const theme = useTheme();

@@ -11,6 +11,7 @@ import 'yet-another-react-lightbox/styles.css';
 import 'yet-another-react-lightbox/plugins/captions.css';
 import { useTheme } from '@mui/material/styles';
 import MiniChatBotLauncher from './MiniChatBotLauncher';
+import WebsiteGallery from './WebsiteGallery';
 
 interface ProjectPageTemplateProps {
   title: string;
@@ -75,64 +76,69 @@ export default function ProjectPageTemplate({
           {nextSlug.toUpperCase()} →
         </Link>
       </div>
-
       {/* Photo gallery grid with parallax thumbnails */}
-      <div className='flex-grow px-4'>
-        <div className='grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4'>
-          {images.map((photo, i) => {
-            const x = useMotionValue(0);
-            const y = useMotionValue(0);
-            const springX = useSpring(x, { stiffness: 100, damping: 20 });
-            const springY = useSpring(y, { stiffness: 100, damping: 20 });
-            const containerRef = useRef<HTMLDivElement>(null);
 
-            const handleMouseMove = (e: React.MouseEvent) => {
-              const rect = containerRef.current?.getBoundingClientRect();
-              if (!rect) return;
-              const offsetX = e.clientX - rect.left;
-              const offsetY = e.clientY - rect.top;
-              const halfW = rect.width / 2;
-              const halfH = rect.height / 2;
-              x.set(((offsetX - halfW) / halfW) * 5);
-              y.set(((offsetY - halfH) / halfH) * 5);
-            };
+      {title === 'UX Projects' && (
+        <>
+          <WebsiteGallery />
+          <h2 className='p-2 text-center text-3xl font-bold'>Old Examples</h2>
+        </>
+      )}
 
-            const handleMouseLeave = () => {
-              x.set(0);
-              y.set(0);
-            };
+      <div className='grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 m-10 md:mx-32'>
+        {images.map((photo, i) => {
+          const x = useMotionValue(0);
+          const y = useMotionValue(0);
+          const springX = useSpring(x, { stiffness: 100, damping: 20 });
+          const springY = useSpring(y, { stiffness: 100, damping: 20 });
+          const containerRef = useRef<HTMLDivElement>(null);
 
-            return (
-              <motion.div
-                key={photo.src}
-                ref={containerRef}
-                className='relative group cursor-pointer overflow-hidden border-slate-500 border-4'
-                onMouseMove={handleMouseMove}
-                onMouseLeave={handleMouseLeave}
-                style={{ translateX: springX, translateY: springY }}
-                onClick={() => {
-                  if (photo.url) {
-                    window.open(photo.url, '_blank', 'noopener,noreferrer');
-                  } else {
-                    setIndex(i);
-                    setOpen(true);
-                  }
-                }}
-              >
-                <img
-                  src={photo.src}
-                  width={photo.width}
-                  height={photo.height}
-                  alt={photo.title || ''}
-                  className='w-full h-auto object-cover'
-                />
-                <div className='absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 flex items-end justify-center text-white p-2 transition-opacity duration-300'>
-                  <p className='text-center text-sm'>{photo.title}</p>
-                </div>
-              </motion.div>
-            );
-          })}
-        </div>
+          const handleMouseMove = (e: React.MouseEvent) => {
+            const rect = containerRef.current?.getBoundingClientRect();
+            if (!rect) return;
+            const offsetX = e.clientX - rect.left;
+            const offsetY = e.clientY - rect.top;
+            const halfW = rect.width / 2;
+            const halfH = rect.height / 2;
+            x.set(((offsetX - halfW) / halfW) * 5);
+            y.set(((offsetY - halfH) / halfH) * 5);
+          };
+
+          const handleMouseLeave = () => {
+            x.set(0);
+            y.set(0);
+          };
+
+          return (
+            <motion.div
+              key={photo.src}
+              ref={containerRef}
+              className='relative group cursor-pointer overflow-hidden border-slate-500 border-4'
+              onMouseMove={handleMouseMove}
+              onMouseLeave={handleMouseLeave}
+              style={{ translateX: springX, translateY: springY }}
+              onClick={() => {
+                if (photo.url) {
+                  window.open(photo.url, '_blank', 'noopener,noreferrer');
+                } else {
+                  setIndex(i);
+                  setOpen(true);
+                }
+              }}
+            >
+              <img
+                src={photo.src}
+                width={photo.width}
+                height={photo.height}
+                alt={photo.title || ''}
+                className='w-full h-auto object-cover'
+              />
+              <div className='absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 flex items-end justify-center text-white p-2 transition-opacity duration-300'>
+                <p className='text-center text-sm'>{photo.title}</p>
+              </div>
+            </motion.div>
+          );
+        })}
       </div>
 
       {/* Lightbox with captions */}
